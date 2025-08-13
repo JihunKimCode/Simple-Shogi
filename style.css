@@ -251,6 +251,7 @@ body {
   color: #666;
   text-align: center;
   margin-top: 6px;
+  margin-bottom: 0px;
 }
 
 .row-legend p {
@@ -326,4 +327,33 @@ button.secondary:hover {
   background: #f4f4f4;
   padding: 6px;
   border-radius: 6px;
+}
+
+@media (max-width: 767px) {
+  body{
+    width: 100%;
+  }
+
+  .game-wrapper{
+    flex-direction: column;
+  }
+
+  .board-wrap{
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .row-legend{
+    margin-top: 0px;
+    margin-bottom: 6px;
+  }
+
+  .row-legend p {
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+
+  .panel{
+    width: 360px;
+  }
 }
