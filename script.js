@@ -529,6 +529,7 @@ function deployPrisoner(owner, index) {
 }
 
 // ===== AI Logic =====
+// Creates a deep copy of the game state.
 function copyState(s) {
   return {
     grid: s.grid.map(row => row.map(p => p ? { ...p } : null)),
@@ -561,6 +562,7 @@ function updateKingEnemyTerritoryCounter(s) {
   }
 }
 
+// Returns a numeric score for the board from the player’s perspective.
 function evaluateBoard(s, player) {
   if (s.gameOver) {
     const aiKing = findKingPosForState(s, player);
@@ -595,6 +597,7 @@ function evaluateBoard(s, player) {
   return score;
 }
 
+// Finds the coordinates of a given player's king.
 function findKingPosForState(s, owner) {
   for (let r = 0; r < R; r++) {
     for (let c = 0; c < C; c++) {
@@ -605,6 +608,7 @@ function findKingPosForState(s, owner) {
   return null;
 }
 
+// Generates all possible legal moves for the current turn (Normal moves & Deploy).
 function generateMoves(s) {
   const moves = [];
 
@@ -643,6 +647,7 @@ function generateMoves(s) {
   return moves;
 }
 
+// Check move is valid for the given piece.
 function canMoveForState(s, piece, fr, fc, tr, tc) {
   if (tr < 0 || tr >= R || tc < 0 || tc >= C) return false;
   const dest = s.grid[tr][tc];
@@ -667,6 +672,7 @@ function canMoveForState(s, piece, fr, fc, tr, tc) {
   return false;
 }
 
+// Applies a move to a copied state and returns the updated state.
 function applyMove(s, move) {
   const ns = copyState(s);
   if (move.type === 'move') {
@@ -700,6 +706,7 @@ function applyMove(s, move) {
   return ns;
 }
 
+// Top-level AI move executor
 function aiMove(depth) {
   if (state.gameOver) return;
 
@@ -741,6 +748,7 @@ function aiMove(depth) {
   }
 }
 
+// Returns all legal moves for a given player in the current state.
 function getAllLegalMoves(player) {
   let moves = [];
 
@@ -776,6 +784,7 @@ function getAllLegalMoves(player) {
   return moves;
 }
 
+// Returns all legal destinations for a piece.
 function getMovesForPiece(r, c, grid) {
   const moves = [];
   const piece = grid[r][c];
@@ -793,6 +802,7 @@ function getMovesForPiece(r, c, grid) {
   return moves;
 }
 
+// Implements minimax search with alpha–beta pruning. Searches possible move sequences up to depth.
 function minimax(s, depth, alpha, beta, maximizingPlayer, player) {
   if (depth === 0 || s.gameOver) {
     return { score: evaluateBoard(s, player) };
@@ -852,6 +862,7 @@ function minimax(s, depth, alpha, beta, maximizingPlayer, player) {
   }
 }
 
+// Check Game Over conditions.
 function checkGameOver(s) {
   const kings = [findKingPosForState(s, 0), findKingPosForState(s, 1)];
   if (!kings[0] || !kings[1]) return true;
