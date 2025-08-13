@@ -369,7 +369,7 @@ function makeMove(fr, fc, tr, tc) {
   state.grid[fr][fc] = null;
 
   if (captured && captured.type === 'king') {
-    // alert(`${mover.owner === 0 ? 'Red' : 'Green'} wins! Captured the king.`);
+    alert(`${mover.owner === 0 ? 'Red' : 'Green'} wins! Captured the king.`);
     log(`<b style="color: #ff3300;">Game over: King captured.</b>`);
     log(`<b style="color: ${mover.owner === 0 ? '#b42418' : '#0d7441'};">${mover.owner === 0 ? 'Red' : 'Green'} wins!</b>`);
     state.gameOver = true;
@@ -434,7 +434,7 @@ function findKingPos(owner) {
 function checkKingPromotionWin() {
   const p = state.turn;
   if (state.kingInEnemyRowCountdown[p] === true) {
-    // alert(`${p === 0 ? 'Red' : 'Green'} wins! King survived in enemy territory for one turn.`);
+    alert(`${p === 0 ? 'Red' : 'Green'} wins! King survived in enemy territory for one turn.`);
     log(`<b style="color: #ff3300;">Game over: King survived in enemy territory.`);
     log(`<b style="color: ${p === 0 ? '#b42418' : '#0d7441'};">${p === 0 ? 'Red' : 'Green'} wins!</b>`);
     state.gameOver = true;
