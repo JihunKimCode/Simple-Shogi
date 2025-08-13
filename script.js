@@ -197,7 +197,7 @@ function clearHighlights() {
   });
 }
 
-// Dots for showing where each unit can go
+// Dots for showing where each piece can go
 function addPieceDots(elm, type) {
   const dotPositions = {
     rook: ['side-top', 'side-bottom', 'side-left', 'side-right'],
@@ -445,7 +445,7 @@ function checkKingPromotionWin() {
 function deployPrisoner(owner, index) {
   if (state.gameOver) return;
   if (owner !== state.turn) {
-    // alert("Invalid unit selected.");
+    // alert("Invalid piece selected.");
     return;
   }
 
@@ -481,7 +481,7 @@ function deployPrisoner(owner, index) {
     const c = +cell.dataset.c;
 
     if (state.grid[r][c]) {
-      alert('An unit is already here.');
+      alert('A piece is already here.');
       return;
     }
     const oppTerrRow = owner === 0 ? 0 : R - 1;
@@ -499,7 +499,7 @@ function deployPrisoner(owner, index) {
 
     document.querySelectorAll('.prisoner.deploying').forEach(el => el.classList.remove('deploying'));
 
-    log(`${owner === 0 ? 'Red' : 'Green'} deployed captured unit ${pieceLabel({ type })}.`);
+    log(`${owner === 0 ? 'Red' : 'Green'} deployed captured piece ${pieceLabel({ type })}.`);
 
     state.turn = 1 - state.turn;
     render();
@@ -730,7 +730,7 @@ function aiMove(depth) {
     
     clearHighlights();
 
-    log(`${state.turn === 0 ? 'Red' : 'Green'} deployed captured unit ${pieceLabel({ type: deployedType })}.`);
+    log(`${state.turn === 0 ? 'Red' : 'Green'} deployed captured piece ${pieceLabel({ type: deployedType })}.`);
     
     state.turn = 1 - state.turn;
     render();
