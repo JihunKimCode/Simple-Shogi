@@ -8,15 +8,15 @@ Simple Shogi is a compact board game inspired by Dōbutsu Shōgi, a small-scale 
 1. Simple Shogi is played on a 4×3 board (12 squares). Each player’s side is divided into three rows, known as their territory.
 2. Each piece moves only in the direction indicated on its symbol. Starting positions are fixed:
 
-    * **King** – Placed in the center of your back row. Moves one square in any direction.
+    * **King** – Placed in the center of the player's back row. Moves one square in any direction.
 
-    * **Rook** – Placed to the right of the King. Moves any number of squares forward, backward, left, or right.
+    * **Rook** – Placed to the right of the King. Moves one square forward, backward, left, or right.
 
-    * **Bishop** – Placed to the left of the King. Moves any number of squares diagonally.
+    * **Bishop** – Placed to the left of the King. Moves one square diagonally.
 
     * **Pawn** – Placed directly in front of the King. Moves one square forward. Upon entering the opponent’s territory, it is flipped and promoted to a Queen.
 
-    * **Queen** – Moves in any direction except diagonally backward.
+    * **Queen** – Moves one square in any direction except diagonally backward.
 
 3. Players alternate turns, moving one piece at a time.
 4. Capturing and Deploying Pieces
