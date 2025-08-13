@@ -1,4 +1,4 @@
-# Simple-Shogi
+# [Simple-Shogi](https://jihunkimcode.github.io/Simple-Shogi/)
 Simplified version of Shogi.
 
 ## Introduction
