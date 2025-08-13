@@ -1,0 +1,329 @@
+/* ===== Root Variables ===== */
+:root {
+  --cell: 120px;
+  --gap: 6px;
+}
+
+/* ===== Base Styles ===== */
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  margin: 0;
+  background: #fafafa;
+  align-items: center;
+}
+
+/* ===== Settings Panel ===== */
+#settings {
+  padding: 8px;
+  border-radius: 6px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+#settings label {
+  font-weight: bold;
+}
+
+#settings select {
+  margin-left: 6px;
+  padding: 4px 8px;
+}
+
+#settings button {
+  padding: 6px;
+}
+
+/* ===== Buttons ===== */
+.mode-btn,
+.ai-btn {
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid #666;
+  background: transparent;
+  color: #2b2b2b;
+  user-select: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.mode-btn {
+  font-size: 1.4em;
+  padding: 6px 12px;
+}
+
+.ai-btn {
+  font-size: 1.2em;
+  padding: 4px 10px;
+}
+
+.mode-btn:hover,
+.ai-btn:hover {
+  background: #1288f8;
+}
+
+.mode-btn.active,
+.ai-btn.active {
+  background-color: #2b2b2b;
+  color: #fff;
+  border-color: #222;
+}
+
+/* ===== Game Mode Containers ===== */
+.game-mode {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.game-mode span {
+  font-weight: bold;
+}
+
+.game-mode button {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  gap: 5px;
+  display: flex;
+}
+
+/* ===== Layout Wrappers ===== */
+.game-wrapper {
+  display: flex;
+  gap: 15px;
+  flex-direction: row;
+}
+
+.board-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Game Board Grid ===== */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, var(--cell));
+  grid-template-rows: repeat(4, var(--cell));
+  gap: var(--gap);
+  background: #333;
+  padding: var(--gap);
+  border-radius: 10px;
+  user-select: none;
+}
+
+/* ===== Board Cells ===== */
+.cell {
+  background: #cdb47d;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  position: relative;
+  cursor: pointer;
+  transition: outline 0.2s ease;
+}
+
+/* Territory Colors */
+.cell.territory.green {
+  background: #7e9456;
+}
+
+.cell.territory.red {
+  background: #b36149;
+}
+
+.cell.occupied {
+  box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Pieces ===== */
+.piece {
+  width: 70%;
+  height: 70%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  user-select: none;
+  position: relative; /* for dot positioning */
+}
+
+.piece.player0 {
+  background: #fff;
+  color: #b42418;
+}
+
+.piece.player1 {
+  background: #fff;
+  color: #0d7441;
+  transform: rotate(180deg);
+}
+
+.piece.small {
+  font-size: 14px;
+}
+
+/* ===== Dot Indicators ===== */
+.dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #000;
+  border-radius: 50%;
+}
+
+/* Corner Dots */
+.dot.top-left {
+  top: 4px;
+  left: 4px;
+}
+
+.dot.top-right {
+  top: 4px;
+  right: 4px;
+}
+
+.dot.bottom-left {
+  bottom: 4px;
+  left: 4px;
+}
+
+.dot.bottom-right {
+  bottom: 4px;
+  right: 4px;
+}
+
+/* Side Dots */
+.dot.side-left {
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+}
+
+.dot.side-right {
+  top: 50%;
+  right: 2px;
+  transform: translateY(-50%);
+}
+
+.dot.side-top {
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dot.side-bottom {
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ===== Selection and Validity Outlines ===== */
+.selected {
+  outline: 3px solid #ffea21;
+}
+
+.valid {
+  outline: 3px solid #01ffff;
+}
+
+/* ===== Deploy Valid Tile ===== */
+.deploy-valid {
+  outline: 2px dashed #ff00ff;
+  background-color: #92345d;
+  cursor: pointer;
+}
+
+/* ===== Row Legend ===== */
+.row-legend {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.row-legend p {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+/* ===== Controls ===== */
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+button {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+button.secondary {
+  background: #aaa;
+}
+
+button.secondary:hover {
+  background: #bbb;
+}
+
+/* ===== HUD and Panels ===== */
+.hud {
+  min-width: 240px;
+}
+
+.panel {
+  width: 256px;
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Prisoners ===== */
+.prisoners {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.prisoner {
+  padding: 6px;
+  border-radius: 6px;
+  background: #eee;
+  cursor: pointer;
+  user-select: none;
+}
+
+.prisoner.deploying {
+  background-color: #555;
+  color: white;
+}
+
+/* ===== Log Area ===== */
+.log {
+  max-height: 343px;
+  overflow: auto;
+  margin-top: 8px;
+  font-size: 13px;
+  background: #f4f4f4;
+  padding: 6px;
+  border-radius: 6px;
+}

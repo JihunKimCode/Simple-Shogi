@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Shogi</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- Settings Panel -->
+  <div id="settings">
+    <!-- Select Game Mode -->
+    <div class="game-mode">
+      <span>Game Mode</span>
+      <div id="modeButtons" class="buttons">
+        <button id="btnHvh" class="mode-btn active" title="vs Human">
+          <i class="fa-solid fa-person"></i>
+        </button>
+        <button id="btnHva" class="mode-btn" title="vs AI">
+          <i class="fa-solid fa-robot"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Choose AI side -->
+    <div id="aiSideButtons" class="game-mode">
+      <span>AI Player</span>
+      <div id="aiButtons" class="buttons">
+        <button id="btnAiNone" class="ai-btn active" title="No AI">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+        <button style="color: #b42418;" id="btnAi0" class="ai-btn" title="Red">
+          <i class="fa-solid fa-circle"></i>
+        </button>
+        <button style="color: #0d7441;" id="btnAi1" class="ai-btn" title="Green">
+          <i class="fa-solid fa-circle"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Wrapper -->
+  <div class="game-wrapper">
+    <div class="board-wrap">
+      <div id="board" class="board"></div>
+
+      <div class="row-legend">
+        <p>1. Each dot shows where a unit can move.</p>
+        <p>2. Green or red tiles mark enemy territory.</p>
+        <p>3. Deploy captured units outside enemy territory.</p>
+        <p>4. Win by capturing the opponent's king.</p>
+        <p>5. Win if your king stays in enemy territory for one turn.</p>
+      </div>
+    </div>
+
+    <!-- Side Panel -->
+    <div class="hud">
+      <div class="panel">
+        <div><strong>Turn:</strong> <span id="turnText">Red</span></div>
+        <div><strong>Chosen:</strong> <span id="selText">Nothing</span></div>
+
+        <div style="margin-top: 8px;">
+          <strong>Captured Units (Green)</strong>
+        </div>
+        <div id="prison1" class="prisoners"></div>
+
+        <div style="margin-top: 8px;">
+          <strong>Captured Units (Red)</strong>
+        </div>
+        <div id="prison0" class="prisoners"></div>
+
+        <div class="controls" style="margin-top: 12px;">
+          <button id="flipBtn" class="secondary">Flip Board</button>
+          <button id="undoBtn" class="secondary">Cancel</button>
+          <button id="resetBtn" class="secondary">Reset</button>
+        </div>
+
+        <div class="log" id="log"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
