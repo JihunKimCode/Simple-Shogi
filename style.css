@@ -329,6 +329,7 @@ button.secondary:hover {
   border-radius: 6px;
 }
 
+/* ===== Mobile Layout ===== */
 @media (max-width: 767px) {
   body{
     width: 100%;
